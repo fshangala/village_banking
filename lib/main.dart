@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:village_banking/pages/home_page.dart';
 import 'package:village_banking/pages/profile_page.dart';
+import 'package:village_banking/pages/transactions_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -29,6 +30,10 @@ final _router = GoRouter(
                 label: "Home",
               ),
               BottomNavigationBarItem(
+                icon: Icon(Icons.payments),
+                label: "Transactions",
+              ),
+              BottomNavigationBarItem(
                 icon: Icon(Icons.person),
                 label: "Profile",
               ),
@@ -50,6 +55,16 @@ final _router = GoRouter(
               path: "/",
               builder: (context, state) {
                 return const HomePage();
+              },
+            ),
+          ],
+        ),
+        StatefulShellBranch(
+          routes: [
+            GoRoute(
+              path: "/transactions",
+              builder: (context, state) {
+                return const TransactionsPage();
               },
             ),
           ],
