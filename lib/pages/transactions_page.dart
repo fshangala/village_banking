@@ -28,6 +28,27 @@ class _TransactionsPageState extends State<TransactionsPage> {
                 DataCell(Text("xxxxxx")),
               ],
             ),
+            DataRow(
+              cells: [
+                DataCell(Text("xx-xx-xxxx")),
+                DataCell(Text("xxxxxx")),
+                DataCell(Text("xxxxxx")),
+              ],
+            ),
+            DataRow(
+              cells: [
+                DataCell(Text("xx-xx-xxxx")),
+                DataCell(Text("xxxxxx")),
+                DataCell(Text("xxxxxx")),
+              ],
+            ),
+            DataRow(
+              cells: [
+                DataCell(Text("xx-xx-xxxx")),
+                DataCell(Text("xxxxxx")),
+                DataCell(Text("xxxxxx")),
+              ],
+            ),
           ],
         ),
         ElevatedButton(
