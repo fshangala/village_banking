@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:village_banking/pages/home_page.dart';
+import 'package:village_banking/pages/login_page.dart';
 import 'package:village_banking/pages/profile_page.dart';
+import 'package:village_banking/pages/register_page.dart';
 import 'package:village_banking/pages/transactions_page.dart';
 
 void main() {
@@ -14,6 +17,15 @@ final _sectionNavigatorKey = GlobalKey<NavigatorState>();
 final _router = GoRouter(
   navigatorKey: _rootNavigatorKey,
   initialLocation: "/",
+  redirect: (context, state) async {
+    print(state);
+    var sharedPref = await SharedPreferences.getInstance();
+    var token = sharedPref.getString("token");
+    if (token == null) {
+      return "/login";
+    }
+    return null;
+  },
   routes: [
     StatefulShellRoute.indexedStack(
       builder: (context, state, navigationShell) {
@@ -81,6 +93,14 @@ final _router = GoRouter(
         ),
       ],
     ),
+    GoRoute(
+      path: "/register",
+      builder: (context, state) => const RegisterPage(),
+    ),
+    GoRoute(
+      path: "/login",
+      builder: (context, state) => const LoginPage(),
+    )
   ],
 );
 
